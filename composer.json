@@ -1,0 +1,10 @@
+{
+    "require": {
+        "symfony/finder": "~2.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Recca0120\\Cheatsheet\\": "src"
+        }
+    }
+}
