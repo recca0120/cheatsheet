@@ -21,9 +21,9 @@ class Property extends Fluent
         $name = $this->reflection->getName();
 
         $this->attributes = [
-            'name' => $name,
-            'declare' => Doc::factory($this->reflection->getDeclaringClass(), true)->toArray(),
-            'comment' => $this->reflection->getDocComment(),
+            'name'      => $name,
+            'declare'   => Doc::factory($this->reflection->getDeclaringClass(), true)->toArray(),
+            'comment'   => $this->reflection->getDocComment(),
             'modifiers' => implode(' ', Reflection::getModifierNames($this->reflection->getModifiers())),
         ];
 

@@ -6,6 +6,7 @@ class Helper
 {
     /**
      * Returns HTML link to editor.
+     *
      * @return string
      */
     public static function editorLink($file, $line = null)
@@ -31,6 +32,7 @@ class Helper
 
     /**
      * Returns link to editor.
+     *
      * @return string
      */
     public static function editorUri($file, $line = null)
@@ -101,9 +103,11 @@ class Helper
     /**
      * Extract the classes in the given file.
      *
-     * @param  string            $path The file to check
+     * @param string $path The file to check
+     *
      * @throws \RuntimeException
-     * @return array             The found classes
+     *
+     * @return array The found classes
      */
     public static function findClasses($path)
     {
@@ -113,11 +117,11 @@ class Helper
         }
         try {
             $contents = @php_strip_whitespace($path);
-            if (! $contents) {
-                if (! file_exists($path)) {
+            if (!$contents) {
+                if (!file_exists($path)) {
                     throw new \Exception('File does not exist');
                 }
-                if (! is_readable($path)) {
+                if (!is_readable($path)) {
                     throw new \Exception('File is not readable');
                 }
             }
@@ -125,7 +129,7 @@ class Helper
             throw new \RuntimeException('Could not scan for classes inside '.$path.": \n".$e->getMessage(), 0, $e);
         }
         // return early if there is no chance of matching anything in this file
-        if (! preg_match('{\b(?:class|interface'.$extraTypes.')\s}i', $contents)) {
+        if (!preg_match('{\b(?:class|interface'.$extraTypes.')\s}i', $contents)) {
             return [];
         }
         // strip heredocs/nowdocs
@@ -155,7 +159,7 @@ class Helper
         $classes = [];
         $namespace = '';
         for ($i = 0, $len = count($matches['type']); $i < $len; $i++) {
-            if (! empty($matches['ns'][$i])) {
+            if (!empty($matches['ns'][$i])) {
                 $namespace = str_replace([' ', "\t", "\r", "\n"], '', $matches['nsname'][$i]).'\\';
             } else {
                 $name = $matches['name'][$i];

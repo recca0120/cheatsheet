@@ -19,13 +19,13 @@ class Method extends Fluent
     protected function boot()
     {
         $this->attributes = [
-            'name' => $this->reflection->getName(),
-            'declare' => Doc::factory($this->reflection->getDeclaringClass(), true)->toArray(),
+            'name'       => $this->reflection->getName(),
+            'declare'    => Doc::factory($this->reflection->getDeclaringClass(), true)->toArray(),
             'parameters' => $this->getParameters(),
-            'comment' => $this->reflection->getDocComment(),
-            'modifiers' => implode(' ', Reflection::getModifierNames($this->reflection->getModifiers())),
-            'file' => $this->reflection->getFileName(),
-            'line' => $this->reflection->getStartLine(),
+            'comment'    => $this->reflection->getDocComment(),
+            'modifiers'  => implode(' ', Reflection::getModifierNames($this->reflection->getModifiers())),
+            'file'       => $this->reflection->getFileName(),
+            'line'       => $this->reflection->getStartLine(),
         ];
 
         return $this;

@@ -47,12 +47,12 @@ class Parameter extends Fluent
         }
 
         $this->attributes = [
-            'name' => $this->reflection->getName(),
-            'position' => $this->reflection->getPosition(),
-            'typeHint' => $typeHint,
-            'default' => $default,
+            'name'      => $this->reflection->getName(),
+            'position'  => $this->reflection->getPosition(),
+            'typeHint'  => $typeHint,
+            'default'   => $default,
             'reference' => $reference,
-            'optional' => $optional,
+            'optional'  => $optional,
         ];
 
         return $this;
