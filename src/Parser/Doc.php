@@ -27,18 +27,18 @@ class Doc extends Fluent
     protected function boot()
     {
         $this->attributes = [
-            'name' => $this->reflection->getName(),
-            'file' => $this->reflection->getFileName(),
-            'line' => $this->reflection->getStartLine(),
+            'name'      => $this->reflection->getName(),
+            'file'      => $this->reflection->getFileName(),
+            'line'      => $this->reflection->getStartLine(),
             'modifiers' => implode(' ', Reflection::getModifierNames($this->reflection->getModifiers())),
         ];
 
         if ($this->declare === false) {
             $this->attributes = array_merge($this->attributes, [
-                'parent' => $this->reflection->getParentClass(),
-                'constants' => $this->getConstants(),
+                'parent'     => $this->reflection->getParentClass(),
+                'constants'  => $this->getConstants(),
                 'properties' => $this->getProperties(),
-                'methods' => $this->getMethods(),
+                'methods'    => $this->getMethods(),
             ]);
         }
 

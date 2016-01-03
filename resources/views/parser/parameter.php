@@ -21,4 +21,3 @@ if ($default !== null) {
     $parameter .= ' = null';
 }
 echo $parameter;
-?>

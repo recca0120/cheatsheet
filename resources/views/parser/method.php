@@ -6,4 +6,3 @@ foreach ($parameters as $parameter) {
 }
 
 echo $modifiers.' function '.$name.'('.implode(', ', $temp).')';
-?>
